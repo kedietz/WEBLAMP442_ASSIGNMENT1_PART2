@@ -2,9 +2,9 @@
 /**
  * Class definition for a 'Civic', which is a kind of 'Car'
  */
-require_once './car.php';
+namespace Pelagos\Vehicles\Cars\Civic
 
-class Civic extends Car {
+class Civic extends \Pelagos\Vehicles\Cars\Car {
   /**
    * new Civic constructor
    * @param int numberOfDoors

@@ -1,14 +1,12 @@
 <?php
 /**
- * car.php
- * Concrete class that implements a 'Car' object
- * 'Car' extends 'Vehicle' class and implements the 'VehicleInterface' interface
+ * truck.php
+ * Concrete class that implements a 'Truck' object
+ * 'Truck' extends 'Vehicle' class and implements the 'VehicleInterface' interface
  */
+namespace Pelagos\Vehicles\Trucks;
 
-require_once './vehicle.php';
-require_once './vehicleinterface.php';
-
-class Car extends Vehicle implements VehicleInterface {
+class Truck extends \Pelagos\Vehicles\Vehicle implements \Pelagos\Vehicles\VehicleInterface {
   /**
    * Year of manufacture
    * @var string
@@ -16,7 +14,7 @@ class Car extends Vehicle implements VehicleInterface {
     protected $_year;
 
   /**
-   * new Car constructor
+   * new Truck constructor
    * @param int numberOfDoors
    * @param string year (4 digit)
    */
@@ -49,4 +47,4 @@ class Car extends Vehicle implements VehicleInterface {
     return $this->_numberOfDoors;
   }
 }
-
+?>

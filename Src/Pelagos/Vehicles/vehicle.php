@@ -3,6 +3,8 @@
  * vehicle.php
  * Abstract class to represent vehicle
  */
+namespace Pelagos\Vehicles
+
 abstract class Vehicle {
   /**
    * Number of doors
