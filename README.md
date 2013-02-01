@@ -1,59 +1,74 @@
-WEBLAMP_ASSIGNMENT1 Specification
-==================================
-Assignment 1
-============
-The core focus of this assignment is to help you gain a deeper understanding of OO (object oriented).
+# WEBLAMP442 Assignment 1, Part 2
 
-                    Vehicle
-                   /      \
-                Car       Truck
-                /
-             Civic
+Developer: Kent Dietz
 
+## Project Requirements
 
-<?php
-/**
- * Abstract class to represent vehicle
- */
-abstract class Vehicle
-{
-    /**
-     * Number of doors
-     * @var int
-     */
-    protected $_numberOfDoors;
+Using Assignment 1, Part 1 (see https://github.com/kedietz/WEBLAMP442_ASSIGNMENT1_PART1) as the starting point, re-implement the design to take advantage of a number of PHP features.
 
-    /**
-     * Return the number of doors
-     * @return int
-     */
-    abstract public function getNumberOfDoors();
-}
-?>
+- Set up basic project skeleton
+- Set up namespace for every class
+- Set up autoloading (using composer - http://getcomposer.org)
+- Develop a test suite for all classes
+- Generate test coverage, aiming for 100% coverage
 
+## Project files structure
 
-What do you need to do?
-============
-- Implement Three sub-classes: Car, Civic and Trunk. They should all implement the base class Vehicle
-- Declare an interface named VehicleInterface, with a method called honk().
-- For each of the sub-class
-    - Provide getYear() and setYear() methods that allow client code to set/get year
-    - Implement the honk() in VehicleInterface
-        - Car and Trunk class will return an empty string
-        - Civic will return a string 'honk honk'
+I chose to implement a namespace based on my company name (Pelagos Systems):
 
-You are welcome and encouraged to make your classes more real-world by providing more functionalities and/or
-create other objects to represent other types of vehicles.
+```
+ - Src
+   - Pelagos
+     - Exceptions
+        - Exception.php
+     - Vehicles
+        - vehicle.php
+        - vehicleinterface.php
+        - car.php
+        - truck.php
+        - civic.php
+ -Tests
+   - Conf
+	- phpunit.xml
+   - Src
+     - Bootstrap.php (takes care of handling autoloading, setting error levels, other test configuration work)
+     - Pelagos
+	- Vehicles
+          - CarTest.php
+          - TruckTest.php
+          - CivicTest.php
+          NOTE: No specific tests for Exception.php, vehicle.php or vehicleinterface.php since the tests for car/truck/civic covered the code
+ - Bootstrap.php   (takes care of autoloading)
+ - composer.json   (Sets up autoloading, dependencies (phpunit))
+ - README.md       (This file, project informationWhat this project is, how to run composer to install dependencies, how to run unit tests
+```
 
-In the end, you should (at least) have the following files:
-- Vehicle.php
-- VehicleInterface.php
-- Car.php
-- Civic.php
-- Trunk.php
-- README.md
+## Project Details
 
-Note:
-- Each class should have a high level class doc that documents what this class does
-- Each method (regardless whether it is public/protected/private) should have a method docblock
+### Enlisting
+
+Follow these steps to build put the project in a working state:
+
+1. Subscribe to the github repository: https://github.com/kedietz/WEBLAMP442_ASSIGNMENT1_PART2
+2. Run composer from the repository root to setup autoloading and get phpunit
+   * composer update -v -o (slower, but downloads required to download correct phpunit)
+   * composer install -v -o (faster, but download)
+3. Run tests:
+   * Make sure <repository root>/Vendors/bin is on your path
+   * run: phpunit Tests
+      Output should be similar to:
+`
+        PHPUnit 3.7.13-1-gc80d9a4 by Sebastian Bergmann.
+
+        ...............................................................  63 / 174 ( 36%)
+        ............................................................... 126 / 174 ( 72%)
+        ................................................
+          
+        Time: 0 seconds, Memory: 4.00Mb
+
+        OK (174 tests, 183 assertions)
+`
+4. Run code coverage
+   * phpunit --coverage-html ./report tests
+   * view report/index.html (NOTE: this will also show "Vendors" directory coverage ... please ignore, did not figure out how to remove it from project).\
 

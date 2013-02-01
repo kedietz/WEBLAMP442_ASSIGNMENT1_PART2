@@ -1,8 +1,8 @@
-  <?php
+<?php
 /**
  * Interface for Vehicle characteristics/properties
  */
-namespace Pelagos\Vehicles
+namespace Pelagos\Vehicles;
 
 interface VehicleInterface {
 /**

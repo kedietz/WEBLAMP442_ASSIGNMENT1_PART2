@@ -19,12 +19,12 @@ class Truck extends \Pelagos\Vehicles\Vehicle implements \Pelagos\Vehicles\Vehic
    * @param string year (4 digit)
    */
   public function __construct($numberOfDoors, $year) {
-    $this->_numberOfDoors = $numberOfDoors;
-    $this->_year = $year;
+    $this->setNumberOfDoors($numberOfDoors);
+    $this->setYear($year);
   }
 
   /**
-   * Get the year of manufacture
+   * Get the model year
    * return string
    */
   public function getYear() {
@@ -32,10 +32,16 @@ class Truck extends \Pelagos\Vehicles\Vehicle implements \Pelagos\Vehicles\Vehic
   }
 
   /**
-   * Set the year of manufacture
-   * @param string (4 digit year)
+   * Set the model year
+   * @param int
    */
-   public function setYear($year) {
+  public function setYear($year) {
+    if (strcmp(gettype($year), "integer") != 0) {
+      throw new \Pelagos\Exceptions\ArgumentException("Invalid type for 'year': (" . gettype($year) . ") Must be 'integer'");
+    }
+    if ($year < 1900 || $year > 2100) {
+      throw new \Pelagos\Exceptions\ArgumentException("Invalid value for 'year': (" . $year . ") Year must fall between 1900 and 2100, inclusive");
+    }
     $this->_year = $year;
   }
 
@@ -46,5 +52,19 @@ class Truck extends \Pelagos\Vehicles\Vehicle implements \Pelagos\Vehicles\Vehic
    public function getNumberOfDoors() {
     return $this->_numberOfDoors;
   }
+
+  /**
+   * Set the number of doors on the Car
+   * @param int
+   */
+  public function setNumberOfDoors($numberOfDoors) {
+    if (strcmp(gettype($numberOfDoors), "integer") != 0) {
+      throw new \Pelagos\Exceptions\ArgumentException("Invalid type for 'numberOfDoors': (" . gettype($numberOfDoors) . ") Must be 'integer'");
+    }
+    if ($numberOfDoors < 1 || $numberOfDoors > 6) {
+      throw new \Pelagos\Exceptions\ArgumentException("Invalid number of doors: (" . $numberOfDoors . ") Number of doors must be between 1 and 6, inclusive");
+    }
+    $this->_numberOfDoors = $numberOfDoors;
+  }
 }
-?>
+
