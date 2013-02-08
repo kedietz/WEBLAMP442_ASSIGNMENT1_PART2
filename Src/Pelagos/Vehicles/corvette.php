@@ -33,7 +33,7 @@ class Corvette extends \Pelagos\Vehicles\Cars\Car {
    * return string
    */
   public function honk() {
-      return "BEEEP";
+      return "BEEEP!";
   }
 }
 ?>

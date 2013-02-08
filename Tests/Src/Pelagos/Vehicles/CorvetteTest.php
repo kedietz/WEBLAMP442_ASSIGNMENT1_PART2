@@ -77,7 +77,7 @@ class CorvetteTest extends PHPUnit_Framework_TestCase {
    */
   public function test_setNumberOfDoors($numberOfDoors, $nop, $expected_numberOfDoors, $nop2) {
     try {
-      $Corvette = new Corvette(2,1998                   );
+      $Corvette = new Corvette(2,1998);
       $Corvette->setNumberOfDoors($numberOfDoors);
       $found_numberOfDoors = $Corvette->getNumberOfDoors();
     } catch (ArgumentException $e) {
@@ -108,6 +108,6 @@ class CorvetteTest extends PHPUnit_Framework_TestCase {
     $Corvette = new Corvette(2,2010);
     $honk = $Corvette->honk();
 
-    $this->assertEquals($honk, "BEEEEP");
+    $this->assertEquals($honk, "BEEEP!");
   }
 }
