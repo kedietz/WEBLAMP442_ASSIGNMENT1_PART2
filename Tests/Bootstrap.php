@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is declared to serve tests specific bootstrap logic
+ * This file is declared to serve tests specific Bootstrap logic
  * to provide global settings when running unit tests
  */
 

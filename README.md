@@ -27,6 +27,7 @@ I chose to implement a namespace based on my company name (Pelagos Systems):
         - car.php
         - truck.php
         - civic.php
+        - corvette.php
  -Tests
    - Conf
 	- phpunit.xml
@@ -37,6 +38,7 @@ I chose to implement a namespace based on my company name (Pelagos Systems):
           - CarTest.php
           - TruckTest.php
           - CivicTest.php
+          - CorvetteTest.php
           NOTE: No specific tests for Exception.php, vehicle.php or vehicleinterface.php since the tests for car/truck/civic covered the code
  - Bootstrap.php   (takes care of autoloading)
  - composer.json   (Sets up autoloading, dependencies (phpunit))
