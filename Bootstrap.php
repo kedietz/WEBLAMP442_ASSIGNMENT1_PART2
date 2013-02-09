@@ -5,5 +5,5 @@
 // And reigsters autoloading with spl_autoload_register (http://php.net/manual/en/function.spl-autoload-register.php )
 //
 // @see http://getcomposer.org/doc/01-basic-usage.md for detail usage
-require 'vendors/autoload.php';
+require 'Vendors/autoload.php';
 ?>
